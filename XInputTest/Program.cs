@@ -15,8 +15,8 @@ namespace XInputTest
     {
         static void Main(string[] args)
         {
-            XInput1_4.XINPUT_BATTERY_INFORMATION battery = new XInput1_4.XINPUT_BATTERY_INFORMATION();
-            XInput1_4.XInputGetBatteryInformation(0, 0, out battery);
+            XInput.XINPUT_BATTERY_INFORMATION battery = new XInput.XINPUT_BATTERY_INFORMATION();
+            XInput.XInputGetBatteryInformation(0, 0, out battery);
             Console.WriteLine("ijoo");
             Console.In.ReadLine();
         }
