@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using XInputNET;
 #endregion
 
 namespace XInputTest
@@ -16,7 +16,7 @@ namespace XInputTest
     {
         static void Main(string[] args)
         {
-            XInput.XInputEnable(true);
+            XInput.Enable(true);
             /*
             // Get battery information
             XInput.BatteryInformation battery = new XInput.BatteryInformation();
@@ -57,7 +57,7 @@ namespace XInputTest
             while(true)
             {
                 packetNumber = state.packetNumber;
-                result = XInput.XInputGetState(XInput.UserIndex.User0, out state);
+                result = XInput.GetState(XInput.UserIndex.User0, out state);
                 
                 if(result != XInput.Error.Success)
                 {
