@@ -28,7 +28,7 @@ namespace XInputNET.Abstraction
                 XInput.Error result = XInput.GetState(userIndex, out state);
                 if (result == XInput.Error.Success)
                 {
-                    gamepads.Add(new Gamepad(state));
+                    gamepads.Add(new Gamepad(state, userIndex));
                 }
             }
 
