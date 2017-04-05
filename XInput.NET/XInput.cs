@@ -114,18 +114,22 @@ namespace XInputNET
             /// This device is not connected.
             /// </summary>
             Disconnected = 0x00,
+
             /// <summary>
             /// Wired device, no battery.
             /// </summary>
             Wired = 0x01,
+
             /// <summary>
             /// Alkaline battery source.
             /// </summary>
             Alkaline = 0x02,
+
             /// <summary>
             /// Nickel Metal Hydride battery source.
             /// </summary>
             NiMH = 0x03,
+
             /// <summary>
             /// Cannot determine the battery type.
             /// </summary>
@@ -313,6 +317,16 @@ namespace XInputNET
             #endregion
 
             #region Public Methods
+
+            /// <summary>
+            /// Gets the pressed state of a gamepad button.
+            /// </summary>
+            /// <param name="button">The button flag.</param>
+            /// <returns>The pressed state of the buton./returns>
+            public bool isButtonPressed(GamepadButtons button)
+            {
+                return (this.buttonsBitmask & button) != 0;
+            }
 
             /// <summary>
             /// Returns a string representation of the gamepad state.

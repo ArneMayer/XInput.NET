@@ -51,6 +51,7 @@ namespace XInputTest
             }*/
 
             // Get state information
+            /*
             XInput.State state = new XInput.State();
             uint packetNumber;
             XInput.Error result;
@@ -74,7 +75,16 @@ namespace XInputTest
 
                 Thread.Sleep(10);
             }
-            
+            */
+
+            Console.WriteLine("Getting Keystroke");
+
+            XInput.KeyStroke keystroke = new XInput.KeyStroke();
+            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
+            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
+            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
+
+            Console.WriteLine("Got Keystroke");
             Console.ReadLine();
         }
     }
