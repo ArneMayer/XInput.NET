@@ -13,7 +13,7 @@ namespace XInputNET
     /// <summary>
     /// XInput Game Controller API enables applications to receive input from the Xbox controller for Windows.
     /// </summary>
-    public class XInput
+    public static class XInput
     {
         #region Enumerations
 

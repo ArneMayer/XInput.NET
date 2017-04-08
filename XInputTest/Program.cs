@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using XInputNET;
+using XInputNET.Abstraction;
+
 #endregion
 
 namespace XInputTest
@@ -16,76 +17,23 @@ namespace XInputTest
     {
         static void Main(string[] args)
         {
-            XInput.Enable(true);
-            /*
-            // Get battery information
-            XInput.BatteryInformation battery = new XInput.BatteryInformation();
-            var result = XInput.XInputGetBatteryInformation(XInput.UserIndex.User0, XInput.BatteryDeviceType.Gamepad, out battery);
-            if(result == XInput.Error.DeviceNotConnected)
+            var pads = Gamepad.GetConnectedDevices();
+            if(pads.Count > 0)
             {
-                Console.WriteLine("Error: Device not connected");
+                Gamepad pad = pads.First();
+                pad.StateChanged += Pad_StateChanged;
             }
             else
             {
-                Console.WriteLine("Battery information:");
-                Console.WriteLine(battery.batteryLevel.ToString());
-                Console.WriteLine(battery.batteryType.ToString());
-                Console.WriteLine();
+                Console.WriteLine("No Gamepads connected");
             }
 
-            // Get capability information
-            XInput.Capabilities caps = new XInput.Capabilities();
-            result = XInput.XInputGetCapabilities(XInput.UserIndex.User0, XInput.GetCapabilitiesFlags.Gamepad, out caps);
-            if(result == XInput.Error.Success)
-            {
-                Console.WriteLine("Capabilities information:");
-                Console.WriteLine(caps.type.ToString());
-                Console.WriteLine(caps.subType.ToString());
-                foreach(XInput.CapabilityFlags cap in Enum.GetValues(typeof(XInput.CapabilityFlags)))
-                {
-                    if((caps.flags & cap) != 0)
-                    {
-                        Console.WriteLine(cap.ToString());
-                    }
-                }
-            }*/
-
-            // Get state information
-            /*
-            XInput.State state = new XInput.State();
-            uint packetNumber;
-            XInput.Error result;
-            while(true)
-            {
-                packetNumber = state.packetNumber;
-                result = XInput.GetState(XInput.UserIndex.User0, out state);
-                
-                if(result != XInput.Error.Success)
-                {
-                    Console.WriteLine("An error occurred while retrieving the gamepad state");
-                }
-                else if(state.packetNumber > packetNumber)
-                {
-                    Console.Clear();
-                    //Console.SetCursorPosition(0, 0);
-                    //Console.CursorVisible = false;
-                    Console.WriteLine(state.gamepad);
-                    //Console.WriteLine("---------------");
-                }
-
-                Thread.Sleep(10);
-            }
-            */
-
-            Console.WriteLine("Getting Keystroke");
-
-            XInput.KeyStroke keystroke = new XInput.KeyStroke();
-            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
-            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
-            XInput.GetKeystroke(XInput.UserIndex.User0, out keystroke);
-
-            Console.WriteLine("Got Keystroke");
             Console.ReadLine();
+        }
+
+        private static void Pad_StateChanged(object sender, EventArgs args)
+        {
+            Console.WriteLine((sender as Gamepad)?.ToString());
         }
     }
 }
