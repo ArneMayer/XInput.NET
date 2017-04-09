@@ -170,8 +170,8 @@ namespace XInputNET
             B = 0x5801,
             X = 0x5802,
             Y = 0x5803,
-            RShoulder = 0x5804,
-            LShoulder = 0x5805,
+            R = 0x5804,
+            L = 0x5805,
             LTrigger = 0x5806,
             RTrigger = 0x5807,
 

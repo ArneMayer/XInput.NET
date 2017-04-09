@@ -19,14 +19,24 @@ namespace XInputNET.Abstraction
     {
         #region Private Constants
 
+        /// <summary>
+        /// The maximum raw value for anolog stick axes.
+        /// </summary>
         private static short thumbMaxValue = System.Int16.MaxValue;
 
+        /// <summary>
+        /// The maximum raw value for triggers.
+        /// </summary>
         private static byte triggerMaxValue = System.Byte.MaxValue;
 
         #endregion
 
         #region Static Methods
 
+        /// <summary>
+        /// Collects all the connected xinput gamepads.
+        /// </summary>
+        /// <returns>A list of all connected devices.</returns>
         public static List<Gamepad> GetConnectedDevices()
         {
             List<Gamepad> gamepads = new List<Gamepad>();
@@ -102,12 +112,18 @@ namespace XInputNET.Abstraction
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets the user id of the gamepad.
+        /// </summary>
         public int UserIndex
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the charge level of the battery in the gamepad.
+        /// </summary>
         public double BatteryChargeLevel
         {
             get
@@ -142,6 +158,9 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the type of the battery in the gamepad.
+        /// </summary>
         public BatteryType TypeOfBattery
         {
             get
@@ -160,115 +179,176 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the state of the A button.
+        /// </summary>
         public bool A
         {
             get;
             private set;
         }
 
-
+        /// <summary>
+        /// Gets the state of the B button.
+        /// </summary>
         public bool B
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the X button.
+        /// </summary>
         public bool X
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the Y button.
+        /// </summary>
         public bool Y
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the L button.
+        /// </summary>
         public bool L
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the R button.
+        /// </summary>
         public bool R
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the start button.
+        /// </summary>
         public bool Start
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the back button.
+        /// </summary>
         public bool Back
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the d-pad up button.
+        /// </summary>
         public bool DPadUp
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the d-pad down button.
+        /// </summary>
         public bool DPadDown
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the d-pad left button.
+        /// </summary>
         public bool DPadLeft
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the d-pad right button.
+        /// </summary>
         public bool DPadRight
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the left thumb press.
+        /// </summary>
         public bool LeftThumbPress
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the state of the right thumb press.
+        /// </summary>
         public bool RightThumbPress
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets or sets the deadzone for the left analog control stick.
+        /// The value should be in the range of 0.0 to 1.0.
+        /// </summary>
         public double LeftThumbDeadzone
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets or sets the deadzone for the right analog control stick.
+        /// The value should be in the range of 0.0 to 1.0.
+        /// </summary>
         public double RightThumbDeadzone
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets or sets the threshold value for the left trigger.
+        /// The value should be in the range of 0.0 to 1.0.
+        /// </summary>
         public double LeftTriggerThreshold
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets or sets the threshold value for the right trigger.
+        /// The value should be in the range of 0.0 to 1.0.
+        /// </summary>
         public double RightTriggerThreshold
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Gets the x-axis value of the left analog control stick.
+        /// The deadzone is already applied.
+        /// </summary>
         public double LeftThumbX
         {
             get
@@ -277,6 +357,10 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the y-axis value of the left analog control stick.
+        /// The deadzone is already applied.
+        /// </summary>
         public double LeftThumbY
         {
             get
@@ -285,18 +369,30 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the unfiltered y-axis value of the left anolog control stick.
+        /// The deadzone is not applied.
+        /// </summary>
         public double LeftThumbYUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the unfiltered x-axis value of the left anolog control stick.
+        /// The deadzone is not applied.
+        /// </summary>
         public double LeftThumbXUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the x-axis value of the right analog control stick.
+        /// The deadzone is already applied.
+        /// </summary>
         public double RightThumbX
         {
             get
@@ -305,6 +401,10 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the y-axis value of the right analog control stick.
+        /// The deadzone is already applied.
+        /// </summary>
         public double RightThumbY
         {
             get
@@ -313,30 +413,50 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the unfiltered y-axis value of the right anolog control stick.
+        /// The deadzone is not applied.
+        /// </summary>
         public double RightThumbYUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the unfiltered x-axis value of the right anolog control stick.
+        /// The deadzone is not applied.
+        /// </summary>
         public double RightThumbXUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the unfiltered value of the left trigger.
+        /// The threshold is not applied.
+        /// </summary>
         public double LeftTriggerUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the unfiltered value of the right trigger.
+        /// The threshold is not applied.
+        /// </summary>
         public double RightTriggerUnfiltered
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Gets the value of the left trigger.
+        /// The threshold is already applied.
+        /// </summary>
         public double LeftTrigger
         {
             get
@@ -345,6 +465,10 @@ namespace XInputNET.Abstraction
             }
         }
 
+        /// <summary>
+        /// Gets the value of the right trigger.
+        /// The threshold is already applied.
+        /// </summary>
         public double RightTrigger
         {
             get
@@ -354,6 +478,9 @@ namespace XInputNET.Abstraction
             
         }
 
+        /// <summary>
+        /// Gets or sets whether the gamepad should stop being observed for status changes.
+        /// </summary>
         public Boolean StopObserving
         {
             get;
@@ -364,16 +491,23 @@ namespace XInputNET.Abstraction
 
         #region Private Methods
 
+        /// <summary>
+        /// Starts observing the gamepad state in a new thread.
+        /// </summary>
         private void StartObserverThread()
         {
             Thread thread = new Thread(this.ObserveGamepad);
             thread.Start();
         }
 
+        /// <summary>
+        /// Observes the gamepad for status changes.
+        /// </summary>
         private void ObserveGamepad()
         {
             uint lastPacketNumber = 0;
             XInput.State state = new XInput.State();
+            XInput.KeyStroke keystroke = new XInput.KeyStroke();
             while (!this.StopObserving)
             {  
                 XInput.Error result = XInput.GetState((XInput.UserIndex)this.UserIndex, out state);
@@ -381,9 +515,24 @@ namespace XInputNET.Abstraction
                 {
                     lastPacketNumber = state.packetNumber;
                     this.SetStateFromXInputState(state);
-                    this.OnStateChanged();
+                    this.RaiseStateChanged();
                 }
-                Thread.Sleep(5);
+
+                result = XInput.GetKeystroke((XInput.UserIndex)this.UserIndex, out keystroke);
+                if(result == XInput.Error.Success)
+                {
+                    if(keystroke.flags == XInput.KeyStrokeFlags.KeyUp)
+                    {
+                        this.RaiseKeyUp((KeyEventArgs.KeyCode)keystroke.virtualKey);
+                    }
+
+                    if (keystroke.flags == XInput.KeyStrokeFlags.KeyDown)
+                    {
+                        this.RaiseKeyDown((KeyEventArgs.KeyCode)keystroke.virtualKey);
+                    }
+                }
+
+                Thread.Sleep(2);
             }
         }
 
@@ -462,10 +611,12 @@ namespace XInputNET.Abstraction
             if (this.DPadRight) output += "DPadRight, ";
             if (this.LeftThumbPress) output += "LeftThumbPress, ";
             if (this.RightThumbPress) output += "RightThumbPress, ";
-            output += "lx: " + this.LeftThumbX + ",";
-            output += "ly: " + this.LeftThumbY + ",";
-            output += "rx: " + this.RightThumbX + ",";
-            output += "ry: " + this.RightThumbY + ",";
+            output += "lx: " + this.LeftThumbX + ", ";
+            output += "ly: " + this.LeftThumbY + ", ";
+            output += "rx: " + this.RightThumbX + ", ";
+            output += "ry: " + this.RightThumbY + ", ";
+            output += "lt: " + this.LeftTrigger + ", ";
+            output += "rt: " + this.RightTrigger;
 
             return output;
         }
@@ -479,42 +630,160 @@ namespace XInputNET.Abstraction
         /// </summary>
         public class KeyEventArgs
         {
+            #region Constructors
 
+            /// <summary>
+            /// Creates a new <see cref="KeyEventArgs"/> instance.
+            /// </summary>
+            /// <param name="key">Which key state changed.</param>
+            /// <param name="change">Whether a key got pressed or released.</param>
+            public KeyEventArgs(KeyCode key, KeyChange change)
+            {
+                this.Key = key;
+                this.Change = change;
+            }
+
+            #endregion
+
+            #region Enumerations
+
+            /// <summary>
+            /// Enumerates the key change possibilities.
+            /// </summary>
+            public enum KeyChange
+            {
+                Up,
+                Down
+            }
+
+            /// <summary>
+            /// Enumerates all pressable keys.
+            /// </summary>
+            public enum KeyCode : UInt16
+            {
+                A = 0x5800,
+                B = 0x5801,
+                X = 0x5802,
+                Y = 0x5803,
+                R = 0x5804,
+                L = 0x5805,
+                LTrigger = 0x5806,
+                RTrigger = 0x5807,
+
+                DPadUp = 0x5810,
+                DPadDown = 0x5811,
+                DPadLeft = 0x5812,
+                DPadRight = 0x5813,
+                Start = 0x5814,
+                Back = 0x5815,
+                LThumbPress = 0x5816,
+                RThumbPress = 0x5817,
+
+                LThumbUp = 0x5820,
+                LThumbDown = 0x5821,
+                LThumbRight = 0x5822,
+                LThumbLeft = 0x5823,
+                LThumbUpLeft = 0x5824,
+                LThumbUpRight = 0x5825,
+                LThumbDownRight = 0x5826,
+                LThumbDownLeft = 0x5827,
+
+                RThumbUp = 0x5830,
+                RThumbDown = 0x5831,
+                RThumbRight = 0x5832,
+                RThumbLeft = 0x5833,
+                RThumbUpLeft = 0x5834,
+                RThumbUpRight = 0x5835,
+                RThumbDownRight = 0x5836,
+                RThumbDownLeft = 0x5837
+            }
+
+            #endregion
+
+            #region Public Properties
+
+            /// <summary>
+            /// How the key changed its state.
+            /// </summary>
+            public KeyChange Change
+            {
+                get;
+                private set;
+            }
+
+            /// <summary>
+            /// The key that changed its state.
+            /// </summary>
+            public KeyCode Key
+            {
+                get;
+                private set;
+            }
+
+            #endregion
         }
 
         #endregion
 
         #region Events
 
+        /// <summary>
+        /// The state changed event delegate type.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="args">The event arguments.</param>
         public delegate void StateChangedEventHandler(Object sender, EventArgs args);
 
+        /// <summary>
+        /// The state changed event fires when the gamepad changes its state in any way.
+        /// </summary>
         public event StateChangedEventHandler StateChanged;
 
-        private void OnStateChanged()
+        /// <summary>
+        /// Raises a state changed event.
+        /// </summary>
+        private void RaiseStateChanged()
         {
             if (StateChanged != null)
                 StateChanged(this, null);
         }
 
+        /// <summary>
+        /// The key event delegate type.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="args">The event arguments.</param>
         public delegate void KeyEventHandler(Object sender, KeyEventArgs args);
 
+        /// <summary>
+        /// The key down event is fired when a button is pressed down on the gamepad.
+        /// </summary>
         public event KeyEventHandler KeyDown;
 
-        private void OnKeyDown()
+        /// <summary>
+        /// Raises a key down event.
+        /// </summary>
+        /// <param name="key">The key that was pressed down.</param>
+        private void RaiseKeyDown(KeyEventArgs.KeyCode key)
         {
             if (KeyDown != null)
-                KeyDown(this, null);
+                KeyDown(this, new KeyEventArgs(key, KeyEventArgs.KeyChange.Down));
         }
 
-        private void OnKeyUp()
-        {
-            if (KeyUp != null)
-                KeyUp(this, null);
-        }
-
+        /// <summary>
+        /// The key up event
+        /// </summary>
         public event KeyEventHandler KeyUp;
 
-
+        /// <summary>
+        /// Raises a key up event.
+        /// </summary>
+        /// <param name="key">The key that was released.</param>
+        private void RaiseKeyUp(KeyEventArgs.KeyCode key)
+        {
+            if (KeyUp != null)
+                KeyUp(this, new KeyEventArgs(key, KeyEventArgs.KeyChange.Up));
+        }
 
         #endregion
     }
