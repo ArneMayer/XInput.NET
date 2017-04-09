@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\XInput.NET.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gamepad.cs" />
+    <Compile Include="Abstraction\Gamepad.cs" />
+    <Compile Include="Abstraction\KeyEventArgs.cs" />
+    <Compile Include="Abstraction\VibrationMotorSpeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XInput.cs" />
   </ItemGroup>

@@ -33,14 +33,14 @@ namespace XInputTest
             Console.ReadLine();
         }
 
-        private static void Pad_KeyDown(object sender, Gamepad.KeyEventArgs args)
+        private static void Pad_KeyDown(object sender, KeyEventArgs args)
         {
-            //Console.WriteLine(args.Key + " down");
+            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.5, 0.5);
         }
 
-        private static void Pad_KeyUp(object sender, Gamepad.KeyEventArgs args)
+        private static void Pad_KeyUp(object sender, KeyEventArgs args)
         {
-            //Console.WriteLine(args.Key + " up");
+            (sender as Gamepad).Vibration = new VibrationMotorSpeed(0.0, 0.0);
         }
 
         private static void Pad_StateChanged(object sender, EventArgs args)

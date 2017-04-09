@@ -53,9 +53,9 @@
     <Content Include="Xinput.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XInput.NET\XInput.NET.csproj">
+    <ProjectReference Include="..\XInput.NET\XInputNET.csproj">
       <Project>{7271c299-7929-45cd-b1b1-794fd7813bb0}</Project>
-      <Name>XInput.NET</Name>
+      <Name>XInputNET</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

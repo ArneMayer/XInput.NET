@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInputTest", "XInputTest\XInputTest.csproj", "{F9D91ACE-CFD5-4B18-9880-5735E89809B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInput.NET", "XInput.NET\XInput.NET.csproj", "{7271C299-7929-45CD-B1B1-794FD7813BB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInputNET", "XInput.NET\XInputNET.csproj", "{7271C299-7929-45CD-B1B1-794FD7813BB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

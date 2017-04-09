@@ -214,7 +214,7 @@ namespace XInputNET
         }
 
         /// <summary>
-        /// Flags used for <see cref="XInputGetKeystroke(UserIndex, dword, out KeyStroke)"/>.
+        /// Flags used for <see cref="XInputGetKeystroke(UserIndex, GetKeyStrokeFlags, out KeyStroke)"/>.
         /// </summary>
         public enum GetKeyStrokeFlags : dword
         {
