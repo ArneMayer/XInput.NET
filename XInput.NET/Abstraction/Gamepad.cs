@@ -101,7 +101,8 @@ namespace XInputNET.Abstraction
         /// <summary>
         /// Creates a new <see cref="Gamepad"/> instance from an xinput state structure.
         /// </summary>
-        /// <param name="state"></param>
+        /// <param name="index">The controller number. Can be in the range of 0 to 3.</param>
+        /// <param name="state">The current state of the gamepad.</param>
         private Gamepad(XInput.State state, XInput.UserIndex index)
         {
             this.LeftThumbDeadzone = XInput.Gamepad.LeftThumbDeadzone / (double)thumbMaxValue;
@@ -112,6 +113,15 @@ namespace XInputNET.Abstraction
             this.UserIndex = (int)index;
             this.StartObserverThread();
         }
+
+        #endregion
+
+        #region Private Fields
+
+        /// <summary>
+        /// Contains the thread that observes the gamepad for state changes.
+        /// </summary>
+        private Thread observerThread;
 
         #endregion
 
@@ -485,6 +495,8 @@ namespace XInputNET.Abstraction
 
         /// <summary>
         /// Gets or sets whether the gamepad should stop being observed for status changes.
+        /// Set to true to stop updating the gamepad changes. 
+        /// The observer thread can not be restarted.
         /// </summary>
         public Boolean StopObserving
         {
@@ -530,9 +542,12 @@ namespace XInputNET.Abstraction
         /// </summary>
         private void StartObserverThread()
         {
-            Thread thread = new Thread(this.ObserveGamepad);
-            thread.IsBackground = true;
-            thread.Start();
+            if(this.observerThread == null)
+            {
+                this.observerThread = new Thread(ObserveGamepad);
+                this.observerThread.IsBackground = true;
+                this.observerThread.Start();
+            }
         }
 
         /// <summary>
